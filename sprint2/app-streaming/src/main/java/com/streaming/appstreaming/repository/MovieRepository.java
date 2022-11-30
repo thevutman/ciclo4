@@ -1,9 +1,10 @@
-package repository;
+package com.streaming.appstreaming.repository;
 
-import entities.Movie;
-import interfaces.IMovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.streaming.appstreaming.entities.Movie;
+import com.streaming.appstreaming.interfaces.IMovieRepository;
 
 import java.util.Optional;
 

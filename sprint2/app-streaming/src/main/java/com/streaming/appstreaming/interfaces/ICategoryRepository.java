@@ -1,7 +1,8 @@
-package interfaces;
+package com.streaming.appstreaming.interfaces;
 
-import entities.Category;
 import org.springframework.data.repository.CrudRepository;
+
+import com.streaming.appstreaming.entities.Category;
 
 public interface ICategoryRepository extends CrudRepository<Category, String> {
 }

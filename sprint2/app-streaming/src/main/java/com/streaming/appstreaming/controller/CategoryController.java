@@ -1,38 +1,37 @@
-package controller;
+package com.streaming.appstreaming.controller;
 
-import entities.Client;
-import interfaces.dto.ReportClientDto;
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import service.ClientService;
+
+import com.streaming.appstreaming.dto.ResponseDto;
+import com.streaming.appstreaming.entities.Category;
+import com.streaming.appstreaming.service.CategoryService;
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/api/category")
 @CrossOrigin(origins = "*")
-public class ClientController {
+public class CategoryController implements Serializable{
     @Autowired
-    ClientService service;
+    CategoryService service;
 
     @GetMapping("")
-    public Iterable<Client> get() {
-        return service.get();
-    }
-
-    @GetMapping("/report")
-    public ReportClientDto getReport() {
-        return service.getReport();
+    public Iterable<Category> get() {
+        Iterable<Category> response = service.get();
+        return response;
     }
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client create(@RequestBody Client request) {
+    public ResponseDto create(@RequestBody Category request) {
         return service.create(request);
     }
 
     @PutMapping("")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Client update(@RequestBody Client request) {
+    public Category update(@RequestBody Category request) {
         return service.update(request);
     }
 
@@ -41,5 +40,4 @@ public class ClientController {
     public void delete(@PathVariable("id") String id) {
         service.delete(id);
     }
-
 }

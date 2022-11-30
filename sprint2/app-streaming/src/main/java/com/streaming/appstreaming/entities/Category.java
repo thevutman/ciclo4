@@ -1,4 +1,4 @@
-package entities;
+package com.streaming.appstreaming.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;

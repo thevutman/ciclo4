@@ -1,4 +1,4 @@
-package interfaces.dto;
+package com.streaming.appstreaming.dto;
 
 public class ReportClientDto {
     public String id;

@@ -1,15 +1,18 @@
-package controller;
+package com.streaming.appstreaming.controller;
 
-import entities.Movie;
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import service.MovieService;
+
+import com.streaming.appstreaming.entities.Movie;
+import com.streaming.appstreaming.service.MovieService;
 
 @RestController
 @RequestMapping("/api/movie")
 @CrossOrigin(origins = "*")
-public class MovieController {
+public class MovieController implements Serializable{
     @Autowired
     MovieService service;
 

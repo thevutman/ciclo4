@@ -1,4 +1,4 @@
-package security;
+package com.streaming.appstreaming.security;
 
 import org.springframework.web.bind.annotation.RestController;
 

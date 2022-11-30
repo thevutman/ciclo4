@@ -1,9 +1,10 @@
-package service;
+package com.streaming.appstreaming.service;
 
-import entities.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.MovieRepository;
+
+import com.streaming.appstreaming.entities.Movie;
+import com.streaming.appstreaming.repository.MovieRepository;
 
 import java.util.Optional;
 

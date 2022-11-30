@@ -1,9 +1,12 @@
-package repository;
+package com.streaming.appstreaming.repository;
 
-import entities.Client;
-import interfaces.IClientRepository;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.streaming.appstreaming.entities.Client;
+import com.streaming.appstreaming.interfaces.IClientRepository;
 
 import java.util.Optional;
 

@@ -1,10 +1,12 @@
-package service;
+package com.streaming.appstreaming.service;
 
-import interfaces.dto.ReportClientDto;
-import entities.Client;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.ClientRepository;
+
+import com.streaming.appstreaming.dto.ReportClientDto;
+import com.streaming.appstreaming.entities.Client;
+import com.streaming.appstreaming.repository.ClientRepository;
 
 import java.util.Optional;
 

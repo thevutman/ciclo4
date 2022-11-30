@@ -1,7 +1,8 @@
-package interfaces;
+package com.streaming.appstreaming.interfaces;
 
-import entities.Movie;
 import org.springframework.data.repository.CrudRepository;
+
+import com.streaming.appstreaming.entities.Movie;
 
 public interface IMovieRepository extends CrudRepository<Movie, String> {
 }

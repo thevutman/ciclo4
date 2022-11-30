@@ -1,10 +1,11 @@
-package service;
+package com.streaming.appstreaming.service;
 
-import interfaces.dto.ResponseDto;
-import entities.Category;
-import interfaces.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.streaming.appstreaming.dto.ResponseDto;
+import com.streaming.appstreaming.entities.Category;
+import com.streaming.appstreaming.interfaces.ICategoryRepository;
 
 @Service
 public class CategoryService {

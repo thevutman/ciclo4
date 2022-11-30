@@ -1,10 +1,11 @@
-package repository;
+package com.streaming.appstreaming.repository;
 
 
-import entities.Category;
-import interfaces.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.streaming.appstreaming.entities.Category;
+import com.streaming.appstreaming.interfaces.ICategoryRepository;
 
 import java.util.Optional;
 
