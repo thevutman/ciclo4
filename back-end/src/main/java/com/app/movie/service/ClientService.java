@@ -1,14 +1,3 @@
-<<<<<<<< HEAD:sprint2/app-streaming/src/main/java/com/streaming/appstreaming/service/ClientService.java
-package com.streaming.appstreaming.service;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.streaming.appstreaming.dto.ReportClientDto;
-import com.streaming.appstreaming.entities.Client;
-import com.streaming.appstreaming.repository.ClientRepository;
-========
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -17,7 +6,6 @@ package com.app.movie.service;
 
 import com.app.movie.dto.ReportClientDto;
 import com.app.movie.entities.Client;
->>>>>>>> 82658319d37a3833ca5bf9df0d6d7226aa713d09:back-end/src/main/java/com/app/movie/service/ClientService.java
 
 import com.app.movie.repository.ClientRepository;
 import java.util.Optional;
