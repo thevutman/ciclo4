@@ -18,9 +18,4 @@ public class MovieApplication {
         // Setting Spring Boot SetTimeZone
         TimeZone.setDefault(TimeZone.getTimeZone("GMT+0:00"));
     }
-<<<<<<< HEAD:sprint2/app-streaming/src/main/java/com/streaming/appstreaming/AppStreamingApplication.java
-    
-=======
-
->>>>>>> 82658319d37a3833ca5bf9df0d6d7226aa713d09:back-end/src/main/java/com/app/movie/MovieApplication.java
 }
