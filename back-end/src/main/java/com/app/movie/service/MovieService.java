@@ -1,32 +1,19 @@
-<<<<<<<< HEAD:sprint2/app-streaming/src/main/java/com/streaming/appstreaming/service/MovieService.java
-package com.streaming.appstreaming.service;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.streaming.appstreaming.entities.Movie;
-import com.streaming.appstreaming.repository.MovieRepository;
-========
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.app.movie.service;
 
-// import com.app.movie.entities.Client;
+import com.app.movie.entities.Client;
 import com.app.movie.entities.Movie;
-// import com.app.movie.repository.ClientRepository;
+import com.app.movie.repository.ClientRepository;
 import com.app.movie.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
->>>>>>>> 82658319d37a3833ca5bf9df0d6d7226aa713d09:back-end/src/main/java/com/app/movie/service/MovieService.java
 
 import java.util.Optional;
 
-/**
- *
- * @author Andres
- */
+
 @Service
 public class MovieService {
 
