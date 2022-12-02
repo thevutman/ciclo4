@@ -28,9 +28,4 @@ public class Movie implements Serializable {
     private String name;
     private String movie_genre;
     private String classification;
-
-
-
-
-
 }
