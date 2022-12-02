@@ -16,10 +16,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- *
- * @author Andres
- */
 @Document("movie")
 @Getter @Setter
 @AllArgsConstructor
@@ -30,6 +26,11 @@ public class Movie implements Serializable {
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
     private String name;
-    
-    
+    private String movie_genre;
+    private String classification;
+
+
+
+
+
 }

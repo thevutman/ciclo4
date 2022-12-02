@@ -4,18 +4,13 @@
  */
 package com.app.movie.controller;
 
-// import com.app.movie.entities.Client;
 import com.app.movie.entities.Movie;
-// import com.app.movie.service.ClientService;
 import com.app.movie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-/**
- *
- * @author Andres
- */
+
 @RestController
 @RequestMapping("/api/movie")
 @CrossOrigin(origins = "*")
@@ -48,3 +43,4 @@ public class MovieController {
     }
 
 }
+
