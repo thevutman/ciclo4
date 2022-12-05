@@ -17,17 +17,25 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
 
-@Document("movie")
+@Document("series")
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Movie implements Serializable {
+public class Series implements Serializable {
 
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
     private String name;
-    private List<Category> movie_genre;
+    private List<Category> series_genre;
     private String classification;
+    private String sesason;
     private String description;
+
+
+
+
+
+
+
 }
