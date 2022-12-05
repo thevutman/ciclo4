@@ -4,6 +4,7 @@
  */
 package com.app.movie.interfaces;
 
+import com.app.movie.entities.Movie;
 import com.app.movie.entities.Series;
 import org.springframework.data.repository.CrudRepository;
 
