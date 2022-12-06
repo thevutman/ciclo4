@@ -5,9 +5,12 @@
 package com.app.movie.service;
 
 import com.app.movie.dto.ReportClientDto;
+import com.app.movie.dto.ResponseDto;
 import com.app.movie.entities.Client;
 
 import com.app.movie.repository.ClientRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +40,19 @@ public class ClientService {
         return reportClientDto;
     }
 
-    public Client create(Client request) {
-
-        return repository.save(request);
-
+    public ResponseDto create(Client request) {
+        ResponseDto response = new ResponseDto();
+        List<Client> client = repository.findByEmail(request.getEmail());
+        if(client.size()>0){
+            response.status=false;
+            response.message="USUARIO YA SE ENCUENTRA REGISTRADO";
+        }else{
+            repository.save(request);
+            response.status=true;
+            response.message="REGISTRADO EXITOSAMENTE";
+            response.id= request.getId();
+        }
+        return response;
     }
 
     public Client update(Client client) {
