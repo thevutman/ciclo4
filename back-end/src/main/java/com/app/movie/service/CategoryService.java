@@ -8,6 +8,8 @@ import com.app.movie.dto.ResponseDto;
 import com.app.movie.entities.Category;
 import com.app.movie.interfaces.ICategoryRepository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,14 +29,18 @@ public class CategoryService {
     }
 
     public ResponseDto create(Category request) {
-
-        Category newCategory = repository.save(request);
-
-        ResponseDto responseDto = new ResponseDto();
-        responseDto.status=true;
-        responseDto.message="Categoría creada correctamente";
-        responseDto.id= newCategory.getId();
-        return responseDto;
+        ResponseDto response = new ResponseDto();
+        List<Category> category = repository.findByName(request.getName());
+        if(category.size()>0){
+            response.status=false;
+            response.message="CATEGORIA YA EXISTE EN EL SISTEMA";
+        }else{
+            repository.save(request);
+            response.status=true;
+            response.message="CATEGORIA CREADA CON EXITO";
+            response.id= request.getId();
+        }
+        return response;
 
     }
 

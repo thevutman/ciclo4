@@ -7,6 +7,7 @@ package com.app.movie.repository;
 import com.app.movie.entities.Category;
 import com.app.movie.interfaces.ICategoryRepository;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,6 +24,10 @@ public class CategoryRepository {
     
     public Iterable<Category> getAll(){
         return repository.findAll();
+    }
+
+    public List<Category> findByName(String name){
+        return repository.findByName(name);
     }
     
     public Optional<Category> findById(String id){
