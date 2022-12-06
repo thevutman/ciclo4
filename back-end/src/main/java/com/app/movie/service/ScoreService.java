@@ -4,10 +4,9 @@
  */
 package com.app.movie.service;
 
+import com.app.movie.dto.ResponseDto;
 import com.app.movie.entities.Score;
-import com.app.movie.entities.Series;
 import com.app.movie.repository.ScoreRepository;
-import com.app.movie.repository.SeriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,10 +24,19 @@ public class ScoreService {
         return response;
     }
 
-    public Score create(Score request) {
-
-        return repository.save(request);
-
+    public ResponseDto create(Score request) {    
+        ResponseDto response = new ResponseDto();
+        if(request.getPuntuacion().intValue() > 0 && request.getPuntuacion().intValue() <= 5){
+            response.status=true;
+            response.message="Calificación guardada correctamente";
+            response.id= request.getId();
+            repository.save(request);
+        }
+        else {
+            response.status=false;
+            response.message="La calificación enviada no está dentro de los valores esperados";
+        }
+        return response;
     }
 
     public Score update(Score score) {

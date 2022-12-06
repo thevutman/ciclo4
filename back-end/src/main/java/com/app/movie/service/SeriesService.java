@@ -4,9 +4,7 @@
  */
 package com.app.movie.service;
 
-import com.app.movie.entities.Movie;
 import com.app.movie.entities.Series;
-import com.app.movie.repository.MovieRepository;
 import com.app.movie.repository.SeriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
