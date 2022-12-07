@@ -27,8 +27,8 @@ public class Score implements Serializable {
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
     private Integer puntuacion;
-    private List<Movie> idMovie;
-    private List<Series> idSeries;
+    //private List<Movie> idMovie;
+    //private List<Series> idSeries;
 
 
 

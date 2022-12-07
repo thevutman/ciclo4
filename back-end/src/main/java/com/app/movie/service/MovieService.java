@@ -4,11 +4,14 @@
  */
 package com.app.movie.service;
 
+import com.app.movie.dto.ReportMovieDto;
+import com.app.movie.dto.ResponseDto;
 import com.app.movie.entities.Movie;
 import com.app.movie.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -23,10 +26,27 @@ public class MovieService {
         return response;
     }
 
-    public Movie create(Movie request) {
+    public ReportMovieDto getReport() {
+        Optional<Movie> movie = repository.findById("6380442df71ad74770fc57e1");
+        ReportMovieDto reportMovieDto= new ReportMovieDto();
+        reportMovieDto.name=movie.get().getName();
+        reportMovieDto.id=movie.get().getId();
+        return reportMovieDto;
+    }
 
-        return repository.save(request);
-
+    public ResponseDto create(Movie request) {
+        ResponseDto response = new ResponseDto();
+        List<Movie> movie = repository.findByName(request.getName());
+        if(movie.size()>0){
+            response.status=false;
+            response.message="LA PELICULA YA SE ENCUENTRA REGISTRADA";
+        }else{
+            repository.save(request);
+            response.status=true;
+            response.message="REGISTRADA EXITOSAMENTE";
+            response.id= request.getId();
+        }
+        return response;
     }
 
     public Movie update(Movie movie) {

@@ -9,6 +9,7 @@ import com.app.movie.interfaces.IMovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -25,6 +26,10 @@ public class MovieRepository {
     public Optional<Movie> findById(String id){
         Optional<Movie> response= repository.findById(id);
         return response;
+    }
+
+    public List<Movie> findByName(String name){
+        return repository.findByName(name);
     }
 
     public Boolean existsById(String id){
