@@ -29,7 +29,7 @@ public class Series implements Serializable {
     private String name;
     private List<Category> series_genre;
     private String classification;
-    private String sesason;
+    private String season;
     private String description;
 
 
