@@ -4,6 +4,7 @@
  */
 package com.app.movie.controller;
 
+import com.app.movie.dto.ResponseDto;
 import com.app.movie.entities.Series;
 import com.app.movie.service.SeriesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class SeriesController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public Series create(@RequestBody Series request) {
+    public ResponseDto create(@RequestBody Series request) {
         return service.create(request);
     }
 

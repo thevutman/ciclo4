@@ -4,6 +4,8 @@
  */
 package com.app.movie.controller;
 
+import com.app.movie.dto.ReportMovieDto;
+import com.app.movie.dto.ResponseDto;
 import com.app.movie.entities.Movie;
 import com.app.movie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +26,14 @@ public class MovieController {
         return service.get();
     }
 
+    @GetMapping("/report")
+    public ReportMovieDto getReport() {
+        return service.getReport();
+    }
+
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public Movie create(@RequestBody Movie request) {
+    public ResponseDto create(@RequestBody Movie request) {
         return service.create(request);
     }
 
