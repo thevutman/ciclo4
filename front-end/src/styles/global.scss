@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
 @import "./styles.css";
 
-h1 {
-    color: red;
+$color1: #1F1D1D;
+$color2: #121212;
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: $color1;
+}
+
+html {
+    font-size: 62.5%;
 }
