@@ -1,0 +1,11 @@
+@import "./global.scss";
+
+.cajitas {
+    display: flex;
+
+    &__items{
+        background-color: azure;
+        width: 200px;
+        height: 100px;
+    }
+}

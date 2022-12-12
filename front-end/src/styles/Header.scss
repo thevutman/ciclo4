@@ -1,0 +1,55 @@
+@import "./global.scss";
+@import "./breakpoints";
+
+.header {
+    background: $color1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+
+    &-container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo{
+        object-fit: contain;
+        width: 60vw;
+    }
+
+    &--mobile {
+        font-size: 2.5rem;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    &--desktop {
+        display: none;
+    }
+
+    @include media(desktop-m) {
+
+        &__logo{
+            object-fit: contain;
+            width: 30vw;
+        }
+
+        &--mobile {
+            display: none;
+        }
+
+        &--desktop {
+            display: flex;
+            gap: 26px;
+
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 400;
+                cursor: pointer;
+            }
+        }
+    }
+}
