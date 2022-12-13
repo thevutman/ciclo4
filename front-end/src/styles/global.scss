@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
 @import "./styles.css";
-
-$color1: #1F1D1D;
-$color2: #121212;
+@import "./vars.scss";
+@import "./breakpoints";
 
 body {
     font-family: 'Inter', sans-serif;
@@ -12,3 +11,17 @@ body {
 html {
     font-size: 62.5%;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: $color2;
+    color: $color3;
+    border-radius: 50px 50px 0 0;
+    padding: 26px;
+
+    @include media(desktop-s){
+        padding: 38px 5%;
+    }
+}
+
