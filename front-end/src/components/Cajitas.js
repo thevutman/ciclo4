@@ -1,18 +1,23 @@
 import React from 'react';
 import '../styles/cajitas.scss'
+import img from '../assets/pelicula.jpg'
 
 const Cajitas = () => {
     return (
         <div className='cajitas'>
-            <div className='cajitas__items'></div>
-            <div className='cajitas__items'></div>
-            <div className='cajitas__items'></div>
-            <div className='cajitas__items'></div>
-            <div className='cajitas__items'></div>
-            <div className='cajitas__items'></div>
-            <div className='cajitas__items'></div>
-            <div className='cajitas__items'></div>
-            <div className='cajitas__items'></div>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
+            <img src={img}></img>
         </div>
 
     );

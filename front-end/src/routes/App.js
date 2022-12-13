@@ -1,13 +1,14 @@
 import React from 'react';
 import '../styles/global.scss'
 import Layout from '../containers/Layout';
-import Prueba from '../components/Prueba';
+import Home from '../pages/Home';
 
 const App = () => {
     return (
         <div>
-            <Layout />
-            <Prueba />
+            <Layout>
+                <Home />
+            </Layout>
         </div>
     );
 };

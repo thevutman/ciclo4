@@ -1,10 +1,11 @@
 import React from 'react';
 import Header from '../components/Header'
 
-const Layout = () => {
+const Layout = ({ children }) => {
     return (
-        <div>
+        <div className='layout'>
             <Header />
+                {children}
         </div>
     );
 };
