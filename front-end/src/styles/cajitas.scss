@@ -1,11 +1,23 @@
-@import "./global.scss";
+@import "./vars.scss";
+@import "./breakpoints";
 
 .cajitas {
     display: flex;
+    gap: 16px;
+    overflow-x: scroll;
+    padding-bottom: 15px;
 
-    &__items{
-        background-color: azure;
-        width: 200px;
-        height: 100px;
+    img {
+        width: 176px;
+        height: 120px;
+        border-radius: 14px;
+        box-shadow: rgba(255, 245, 245, .25) 5px 8px 10px;
+    }
+
+    @include media(tablet){
+        img {
+            width: 220px;
+            height: 133px;
+        }
     }
 }
