@@ -1,17 +1,21 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import '../styles/global.scss'
 import Layout from '../containers/Layout';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
+import Error from '../pages/Error';
 
 const App = () => {
     return (
-        <div>
+        <BrowserRouter>
             <Layout>
-                {/* <Home /> */}
-                <Login/>
+                <Routes>
+                    <Route path='/' element={<Home />}/>
+                    <Route path='*' element={<Error />}/>
+                </Routes>
             </Layout>
-        </div>
+        </BrowserRouter>
     );
 };
 
