@@ -15,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.List;
 
 @Document("movie")
 @Getter @Setter
@@ -27,7 +26,6 @@ public class Movie implements Serializable {
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
     private String name;
-    //private List<Category> movie_genre;
     private String classification;
     private String description;
 }
