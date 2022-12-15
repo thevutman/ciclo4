@@ -16,14 +16,14 @@ const header = () => {
             <div className='header--mobile' onClick={openMenu}>
                 <h1>MENU</h1>
             </div>
-            <div className='header__menu' id='menu'>
+            <div className='header--desktop'>
                 <h1>INICIO</h1>
                 <h1>PELICULAS</h1>
                 <h1>SERIES</h1>
                 <h1>CATEGORIAS</h1>
                 <h1>CUENTA</h1>
             </div>
-            <div className='header--desktop'>
+            <div className='menu' id='menu'>
                 <h1>INICIO</h1>
                 <h1>PELICULAS</h1>
                 <h1>SERIES</h1>
