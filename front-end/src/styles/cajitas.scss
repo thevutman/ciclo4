@@ -3,16 +3,42 @@
 
 .cajitas {
     display: flex;
-    gap: 16px;
+    gap: 26px;
     overflow-x: scroll;
     padding-bottom: 15px;
+    height: 150px;
+    align-items: center;
+    border-radius: 14px;
+    position: relative;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        height: 0;
+    }
+
+    &.active {
+        transform: scale(0.97);
+        scroll-snap-type: none;
+    }
 
     img {
         width: 176px;
         height: 120px;
         border-radius: 14px;
         box-shadow: rgba(255, 245, 245, .25) 5px 8px 10px;
+        object-fit: cover;
+        scroll-snap-align: center;
     }
+
+    p {
+        display: none;
+    }
+
+    &-container:hover{
+        transform: scale(1.1);
+    }
+
 
     @include media(tablet){
         img {
