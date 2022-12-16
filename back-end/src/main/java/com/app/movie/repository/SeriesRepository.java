@@ -4,7 +4,7 @@
  */
 package com.app.movie.repository;
 
-import com.app.movie.entities.Movie;
+//import com.app.movie.entities.Movie;
 import com.app.movie.entities.Series;
 import com.app.movie.interfaces.ISeriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
