@@ -4,11 +4,15 @@
  */
 package com.app.movie.controller;
 
+import com.app.movie.dto.ReportMovieDto;
+import com.app.movie.dto.ResponseDto;
 import com.app.movie.entities.Movie;
 import com.app.movie.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 
 @RestController
@@ -24,9 +28,19 @@ public class MovieController {
         return service.get();
     }
 
+    @GetMapping("/{id}")
+    public Optional<Movie> getById(@PathVariable("id") String id) {
+        return service.getById(id);
+    }
+
+    @GetMapping("/report")
+    public ReportMovieDto getReport() {
+        return service.getReport();
+    }
+
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public Movie create(@RequestBody Movie request) {
+    public ResponseDto create(@RequestBody Movie request) {
         return service.create(request);
     }
 

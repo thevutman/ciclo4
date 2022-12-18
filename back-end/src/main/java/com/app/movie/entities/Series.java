@@ -15,7 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.List;
+//import java.util.List;
 
 @Document("series")
 @Getter @Setter
@@ -27,9 +27,9 @@ public class Series implements Serializable {
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
     private String name;
-    private List<Category> series_genre;
+    //private List<Category> series_genre;
     private String classification;
-    private String sesason;
+    private String season;
     private String description;
 
 
