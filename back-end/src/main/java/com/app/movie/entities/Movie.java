@@ -30,4 +30,5 @@ public class Movie implements Serializable {
     private List<Category> movie_genre;
     private String classification;
     private String description;
+    private String link;
 }
