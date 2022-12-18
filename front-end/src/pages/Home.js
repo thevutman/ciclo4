@@ -34,6 +34,7 @@ const Home = () => {
                 <div className='home__left' onClick={back(1)}></div>
                 <div className='home__right' onClick={next(1)}></div>
             </div>
+            <i class="fa-sharp fa-solid fa-heart"></i>
             {/*<div className='home__items'>
                 <h3>Favoritos</h3> */}
                 {/* <Cajitas
