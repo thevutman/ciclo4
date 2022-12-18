@@ -7,13 +7,14 @@ import Home from '../pages/Home';
 import Error from '../pages/Error';
 import Movies from '../pages/Movies';
 
+
 const App = () => {
     return (
         <BrowserRouter>
             <Layout>
                 <Routes>
                     <Route path='/' element={<Home />}/>
-                    <Route path="/movies/:id" element={<Movies/>}/>
+                    <Route path='/movies/:id' element={<Movies/>}/>
                     <Route path='*' element={<Error />}/>
                 </Routes>
             </Layout>

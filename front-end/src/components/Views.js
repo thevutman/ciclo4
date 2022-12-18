@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import "../styles/Views.scss";
+import { useParams } from "react-router-dom";
+
 const Views = () => {
     const [contents, setContents] = useState([])
-    const params = useParams()
+    const params = useParams() 
 
     useEffect(() => {
         async function fetchData() {
@@ -18,31 +20,28 @@ const Views = () => {
 
 
     return (
-        <div>
-                <div className='vista'>          
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-Lo_uRC5P6s" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                        <div className='vista-container'>
-                                
-                            <div className='vista__btn'>
-                                <p >PLAY </p>
-                            </div>
-                            <div className='vista__info'>
-                                <div className='vista__info-head'>
-                                    <h2>{contents.name}</h2>
-                                    <i className="fa-sharp fa-solid fa-heart"></i>
-
-                                </div>
-                                <p className='vista__info-p'>duracion</p>
-                                <p className='vista__info-p'>actores</p>
-                                <p className='vista__info-p'>director</p>
-                                <p className='vista__info-p'>{contents.classification}</p>
-                                <p className='vista__info-p vista__info-p--light' >{contents.description}</p>
-
-                            </div>
+        <div>  
+            <div className='vista'>     
+                <iframe width="100%" height="100%" src={!contents.views?" ":contents.views} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <div className='vista-container'>
+                    
+                    <div className='vista__btn'>
+                        <p >PLAY </p>
+                    </div>
+                    <div className='vista__info'>
+                        <div className='vista__info-head'>
+                            <h2>{contents.name}</h2>
+                            <i className="fa-sharp fa-solid fa-heart"></i>
 
                         </div>
-                    
-                </div>
+                        <p className='vista__info-p'>duracion</p>
+                        <p className='vista__info-p'>actores</p>
+                        <p className='vista__info-p'>director</p>
+                        <p className='vista__info-p'>{contents.classification}</p>
+                        <p className='vista__info-p vista__info-p--light' >{contents.description}</p>
+                    </div>
+                </div>   
+            </div>
         </div>
     );
 };
