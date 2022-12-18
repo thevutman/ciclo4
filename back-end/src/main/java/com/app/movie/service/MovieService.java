@@ -26,6 +26,11 @@ public class MovieService {
         return response;
     }
 
+    public Optional<Movie> getById(String id) {
+        Optional<Movie> response = repository.findById(id);
+        return response;
+    }
+
     public ReportMovieDto getReport() {
         Optional<Movie> movie = repository.findById("6380442df71ad74770fc57e1");
         ReportMovieDto reportMovieDto= new ReportMovieDto();
