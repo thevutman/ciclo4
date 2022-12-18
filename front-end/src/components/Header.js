@@ -9,7 +9,7 @@ const header = () => {
     return (
         <div className='header'>
             <div className='header-container'>
-                <img src={img} />
+                <img src={img} alt='logo de netflix con un parche' />
                 <div></div>
                 <p>BIENVENIDO</p>
             </div>
