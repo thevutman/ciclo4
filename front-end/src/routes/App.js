@@ -4,6 +4,7 @@ import '../styles/global.scss'
 import Layout from '../containers/Layout';
 import Home from '../pages/Home';
 import Error from '../pages/Error';
+import Movies from '../pages/Movies';
 
 const App = () => {
     return (
@@ -11,6 +12,7 @@ const App = () => {
             <Layout>
                 <Routes>
                     <Route path='/' element={<Home />}/>
+                    <Route path='/movies' element={<Movies/>}/>
                     <Route path='*' element={<Error />}/>
                 </Routes>
             </Layout>
