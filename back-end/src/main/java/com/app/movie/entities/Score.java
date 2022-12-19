@@ -15,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.List;
 //import java.util.List;
 
 @Document("score")
@@ -27,10 +26,11 @@ public class Score implements Serializable {
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
-    private Integer puntuacion;
-    private List<Movie> idMovie;
-    private List<Series> idSeries;
-    private List<Client> idClient;
+    private Boolean state;
+    private Client client;
+    private Movie movie;
+
+
 
 
 

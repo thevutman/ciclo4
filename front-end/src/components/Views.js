@@ -17,6 +17,25 @@ const Views = () => {
         fetchData()
        }, [])
 
+       function like(){
+          console.log(4)
+          handleClick()
+          document.getElementById("heart").style.color="red"
+       }
+
+       var jsonData = {
+        "state": true
+        } 
+        function handleClick() { 
+            // Send data to the backend via POST 
+            fetch("http://localhost:8080/api/score", { 
+                // Enter your IP address here 
+                method: 'POST', 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonData) 
+                // body data type must match "Content-Type" header 
+            }) 
+        }
 
     return (
         <div>  
