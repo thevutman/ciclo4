@@ -49,7 +49,7 @@ const Views = () => {
                     <div className='vista__info'>
                         <div className='vista__info-head'>
                             <h2>{contents.name}</h2>
-                            <i className="fa-sharp fa-solid fa-heart"></i>
+                            <i className="fa-sharp fa-solid fa-heart" id='heart' onClick={like}></i>
 
                         </div>
                         <p className='vista__info-p'>duracion</p>
