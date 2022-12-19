@@ -1,0 +1,61 @@
+@import "./global.scss";
+@import "./vars.scss";
+
+// { }
+.login {
+    background-color: $color2;
+    border-radius: 50px 50px 0 0;
+    height: 90vh;
+    &-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        gap: 16px;
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 80%;
+            max-width: 350px;
+            label { 
+                font-size: 2rem;
+            }
+            input { 
+                width: 90%;
+                height: 33px;
+                background: #232323;
+                border-radius: 38px;
+                border-style: none;
+                padding: 0 15px;
+                color: white;
+                font-family: 'Inter', sans-serif;
+        
+            }
+        }
+        h2 { 
+            font-size: 2.5rem;
+        }
+        button { 
+            width: 50%;
+            height: 45px;
+            background: #81161C;
+            border-radius: 4px;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-style: none;
+            max-width: 150px;
+            &:hover { 
+                background: #6e0b10; 
+            }
+        }
+        p { 
+            font-weight: 200;
+        }
+    }
+
+}
