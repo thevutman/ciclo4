@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Header.scss';
 import img from '../assets/logo.svg';
+import { Link } from 'react-router-dom';
 
 const header = () => {
     const openMenu = () => {
@@ -17,18 +18,18 @@ const header = () => {
                 <h1>MENU</h1>
             </div>
             <div className='header--desktop'>
-                <h1>INICIO</h1>
-                <h1>PELICULAS</h1>
-                <h1>SERIES</h1>
-                <h1>CATEGORIAS</h1>
-                <h1>CUENTA</h1>
+                <Link className='header__link' to={"/"}>INICIO</Link>
+                <Link className='header__link'>PELICULAS</Link>
+                <Link className='header__link'>SERIES</Link>
+                <Link className='header__link'>CATEGORIAS</Link>
+                <Link className='header__link'>CUENTA</Link>
             </div>
             <div className='menu' id='menu'>
-                <h1>INICIO</h1>
-                <h1>PELICULAS</h1>
-                <h1>SERIES</h1>
-                <h1>CATEGORIAS</h1>
-                <h1>CUENTA</h1>
+                <Link className='header__link' to={"/"}>INICIO</Link>
+                <Link className='header__link'>PELICULAS</Link>
+                <Link className='header__link'>SERIES</Link>
+                <Link className='header__link'>CATEGORIAS</Link>
+                <Link className='header__link'>CUENTA</Link>
             </div>
         </div>
     );
