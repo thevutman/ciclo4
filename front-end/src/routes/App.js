@@ -5,6 +5,9 @@ import Layout from '../containers/Layout';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import Error from '../pages/Error';
+import Movies from '../pages/Movies';
+
 
 const App = () => {
     return (
@@ -15,6 +18,8 @@ const App = () => {
                     <Route path='/login' element={<Login />}/>
                     <Route path='/register' element={<Register />}/>
 
+                    <Route path='/movies/:id' element={<Movies/>}/>
+                    <Route path='*' element={<Error />}/>
                 </Routes>
             </Layout>
         </BrowserRouter>
