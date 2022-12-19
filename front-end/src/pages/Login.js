@@ -1,7 +1,8 @@
 import React from "react";
 import {Link } from "react-router-dom";
 import "../styles/Login.scss"
-const Login =() => {
+    
+    const Login =() => {
     
     
     return (
