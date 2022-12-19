@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import '../styles/cajitas.scss';
 import img from '../assets/pelicula.jpg';
 // import requestApi from '../hooks/requestApi';
-import { Link } from "react-router-dom";
 
 const Cajitas = (API) => {
     // const contents = requestApi(API.API)

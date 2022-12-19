@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import "../styles/Views.scss";
-import { useParams } from "react-router-dom";
 
 const Views = () => {
     const [contents, setContents] = useState([])
