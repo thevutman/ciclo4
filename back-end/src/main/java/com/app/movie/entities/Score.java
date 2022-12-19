@@ -27,10 +27,11 @@ public class Score implements Serializable {
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
-    private Integer puntuacion;
-    private List<Movie> idMovie;
-    private List<Series> idSeries;
-    private List<Client> idClient;
+    private Boolean state;
+    private Client client;
+    private Movie movie;
+
+
 
 
 
