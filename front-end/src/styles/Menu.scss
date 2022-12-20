@@ -1,5 +1,6 @@
 @import './global.scss';
 @import './vars.scss';
+@import './breakpoints';
 
 .menu {
     position: relative;
@@ -11,6 +12,7 @@
         font-size: 2.5rem;
         color: white;
         margin-bottom: 16px;
+        cursor: pointer;
     }
 
     &--desktop{
@@ -42,6 +44,23 @@
         color: white;
         text-decoration: none;
         font-size: 2rem;
+    }
+
+    @include media(tablet){
+        &--mobile{
+            display: none;
+        }
+
+        &--desktop{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        &__items {
+            display: none;
+        }
     }
 }
 

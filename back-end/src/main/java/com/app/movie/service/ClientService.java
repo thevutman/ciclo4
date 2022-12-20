@@ -48,6 +48,8 @@ public class ClientService {
 
     public ResponseDto create(Client request) {
         ResponseDto response = new ResponseDto();
+        String encodedPassword = this.passwordEncoder.encode(request.getPassword());
+        request.setPassword(encodedPassword);
         List<Client> client = repository.findByEmail(request.getEmail());
         if(client.size()>0){
             response.status=false;

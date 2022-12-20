@@ -1,5 +1,5 @@
 import React,{useEffect }  from "react";
-import {Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import "../styles/Register.scss"
 
 // { }  <>
@@ -86,6 +86,7 @@ const Register =() => {
                             break
                         }
                         registrar()
+                        return true
                     }
                 }
                 else {
@@ -104,6 +105,9 @@ const Register =() => {
                 break
             }
         }
+    }
+    async function handleClickRegister(){
+        console.log(await comprobar())
     }
     return (
         <div className="register">
@@ -126,7 +130,7 @@ const Register =() => {
                     <label for="RepeatPassword">Repeat Password</label>
                     <input className="input" id="RepeatPassword" type="password" name="RepeatPassword" placeholder="*******" required/>
                 </form>
-                <button type="submit" onClick={comprobar}>Start</button>
+                <button type="submit" onClick={handleClickRegister}>Start</button>
                 <p>¿Ya tienes cuenta? Ingresa aquí <Link className="register-container__link" to={"/"}>aquí </Link></p>
 
             </div>

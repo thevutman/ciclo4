@@ -6,14 +6,11 @@ import { useEffect } from 'react';
 const Home = () => {
     function next (x){
         const activities = document.querySelectorAll(".cajitas");
-        console.log(activities[x])
-        console.log("a")
-        // activities.scrollLeft = activities.scrollLeft+400
+        activities[x].scrollLeft = activities[x].scrollLeft+400
     }
-    function back (x){
+    function back (x, e){
         const activities = document.querySelectorAll(".cajitas");
-        console.log(activities[x])
-        // activities.scrollLeft = activities.scrollLeft-400
+        activities[x].scrollLeft = activities[x].scrollLeft-400
     }
     return (
         <div className='home container'>
@@ -22,17 +19,19 @@ const Home = () => {
                 <h3>Peliculas</h3>
                 <Cajitas
                     API="http://localhost:8080/api/movie"
+                    type="movies"
                 />
-                <div className='home__left' onClick={console.log(1)}></div>
-                <div className='home__right' onClick={next}></div>
+                <div className='home__left' onClick={() => back(0)}></div>
+                <div className='home__right' onClick={() => next(0)}></div>
             </div>
             <div className='home__items'> 
                 <h3>Series</h3>
                 <Cajitas
                     API="http://localhost:8080/api/series"
+                    type='series'
                 />
-                <div className='home__left' onClick={back(1)}></div>
-                <div className='home__right' onClick={next(1)}></div>
+                <div className='home__left' onClick={() => back(1)}></div>
+                <div className='home__right' onClick={() => next(1)}></div>
             </div>
             {/*<div className='home__items'>
                 <h3>Favoritos</h3> */}
