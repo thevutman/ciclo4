@@ -32,15 +32,9 @@
                 padding: 0 15px;
                 color: white;
                 font-family: 'Inter', sans-serif;
-                // &:valid{
-                //     border: 2px solid green;
-                // }
-                // &:invalid{
-                //     border: 2px solid red;
-                // }
-                &:-internal-autofill-selected {
-                    background-color: gray !important;
-                }
+                &:valid{
+                    border: 2px solid green;
+                 }
             }
             div { 
                 display:flex;
@@ -69,26 +63,6 @@
         
         p { 
             font-weight: 200;
-            font-size: 1.4rem;
-        }
-        button { 
-            width: 50%;
-            height: 45px;
-            background: #81161C;
-            border-radius: 4px;
-            color: white;
-            font-size: 2rem;
-            font-weight: 700;
-            cursor: pointer;
-            border-style: none;
-            max-width: 150px;
-            
-            &:hover { 
-                background: #6e0b10; 
-            }
-        }
-        &__link {
-            color: red;
         }
     }
 

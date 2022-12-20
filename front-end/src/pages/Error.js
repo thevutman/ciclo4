@@ -8,8 +8,8 @@ const Error = () => {
     return (
         <div className="error">
             <div className="error-container">
-             <img src={img} alt="Error 404 imagen"/>
-             <h1>ERROR 404</h1>
+             <img src={img}/>
+             <h1> ERROR 404</h1>
              <h1>Page Not Found</h1>
             </div>
         </div>

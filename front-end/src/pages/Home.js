@@ -7,7 +7,7 @@ const Home = () => {
     function next (x){
         const activities = document.querySelectorAll(".cajitas");
         console.log(activities[x])
-        console.log("a")
+        console.log(x)
         // activities.scrollLeft = activities.scrollLeft+400
     }
     function back (x){
@@ -23,8 +23,8 @@ const Home = () => {
                 <Cajitas
                     API="http://localhost:8080/api/movie"
                 />
-                <div className='home__left' onClick={console.log(1)}></div>
-                <div className='home__right' onClick={next}></div>
+                <div className='home__left' onClick={back(0)}></div>
+                <div className='home__right' onClick={next(0)}></div>
             </div>
             <div className='home__items'> 
                 <h3>Series</h3>

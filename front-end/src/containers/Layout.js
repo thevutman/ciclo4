@@ -1,16 +1,12 @@
 import React from 'react';
-import {Outlet} from "react-router-dom";
 import Header from '../components/Header'
 
-const Layout = () => {
+const Layout = ({ children }) => {
     return (
-        // <div className='layout'>
-        //     <Header />
-        // </div>
-        <>
+        <div className='layout'>
             <Header />
-            <Outlet />
-        </>
+                {children}
+        </div>
     );
 };
 
