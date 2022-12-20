@@ -1,13 +1,32 @@
 @import "./global.scss";
 @import "./vars.scss";
+@import "./breakpoints";
 
 // { }
 .login {
-    background-color: $color2;
+    background-color: #121212;
     border-radius: 50px 50px 0 0;
+    justify-content: space-evenly;
     height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+
+    &-information {
+        color: white;
+        width: 100%;
+        order: 1;
+        text-align: center;
+
+        h2{
+            font-size: 2.7rem;
+        }
+        p{
+            font-size: 1.6rem;
+        }
+    }
     &-container {
-        height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -55,6 +74,22 @@
         }
         p { 
             font-weight: 200;
+            font-size: 1.4rem;
+        }
+        &__link {
+            color: red;
+        }
+    }
+
+    @include media(tablet){
+        align-items: center;
+        padding: 30px;
+        &-information{
+            width: 40%;
+            order: 0;
+        }
+        &-container{
+            width: 50%;
         }
     }
 
