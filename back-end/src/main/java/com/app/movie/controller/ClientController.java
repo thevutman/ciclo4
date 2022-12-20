@@ -41,6 +41,11 @@ public class ClientController {
         return service.get();
     }
 
+    @GetMapping("/{email}")
+    public List<Client> getByEmail(@PathVariable("email") String email) {
+        return service.getByEmail(email);
+    }
+
     @GetMapping("/report")
     public ReportClientDto getReport() {
         return service.getReport();

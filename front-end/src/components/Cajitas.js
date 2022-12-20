@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from "react-router-dom";
 import '../styles/cajitas.scss';
 import img from '../assets/pelicula.jpg';
 // import requestApi from '../hooks/requestApi';
-import { Link } from "react-router-dom";
 
 const Cajitas = (API) => {
     // const contents = requestApi(API.API)
@@ -51,7 +51,7 @@ const Cajitas = (API) => {
     return (
         <div className='cajitas'>
             {contents.map(content => (
-                <Link key={content.id} className='cajitas-container' to={`/movies/${content.id}`}>
+                <Link key={content.id} className='cajitas-container' to={`/${API.type}/${content.id}`}>
                     <img src={!content.link?img:content.link} alt={"imagen de la pelicula" + content.name} />
                     <p className='cajitas-container__title'>{content.name}</p>
                 </Link>
