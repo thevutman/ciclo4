@@ -8,6 +8,7 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Error from '../pages/Error';
 import Movies from '../pages/Movies';
+import Series from '../pages/Series';
 
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
                         <Route element={<MenuLayout />}>
                             <Route path='home' element={<Home />}/>
                             <Route path='movies/:id' element={<Movies/>}/>
+                            <Route path='series/:id' element={<Series/>}/>
                             <Route path='*' element={<Error />}/>
                         </Route>
                     </Route>

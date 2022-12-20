@@ -2,16 +2,17 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import "../styles/Views.scss";
 
-const Views = () => {
+const Views = (API) => {
     const [contents, setContents] = useState([])
     const params = useParams() 
 
     useEffect(() => {
         async function fetchData() {
-            let response = await fetch("http://localhost:8080/api/movie/"+params.id)
+            let response = await fetch(API.API+params.id)
             response = await response.json()
             console.log(params.id)
             console.log(response)
+            console.log(API.API)
             setContents(response)
         }
         fetchData()

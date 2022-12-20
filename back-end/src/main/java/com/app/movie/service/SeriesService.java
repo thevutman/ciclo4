@@ -26,6 +26,12 @@ public class SeriesService {
         return response;
     }
 
+    
+    public Optional<Series> getById(String id) {
+        Optional<Series> response = repository.findById(id);
+        return response;
+    }
+
     public ReportSeriesDto getReport() {
         Optional<Series> series = repository.findById("6380442df71ad74770fc57e1");
         ReportSeriesDto reportSeriesDto= new ReportSeriesDto();

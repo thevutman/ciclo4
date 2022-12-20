@@ -51,7 +51,7 @@ const Cajitas = (API) => {
     return (
         <div className='cajitas'>
             {contents.map(content => (
-                <Link key={content.id} className='cajitas-container' to={`/movies/${content.id}`}>
+                <Link key={content.id} className='cajitas-container' to={`/${API.type}/${content.id}`}>
                     <img src={!content.link?img:content.link} alt={"imagen de la pelicula" + content.name} />
                     <p className='cajitas-container__title'>{content.name}</p>
                 </Link>
