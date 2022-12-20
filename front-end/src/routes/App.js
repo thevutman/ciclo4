@@ -9,6 +9,7 @@ import Register from '../pages/Register';
 import Error from '../pages/Error';
 import Movies from '../pages/Movies';
 import Series from '../pages/Series';
+import Category from '../components/Category';
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
                             <Route path='home' element={<Home />}/>
                             <Route path='movies/:id' element={<Movies/>}/>
                             <Route path='series/:id' element={<Series/>}/>
+                            <Route path='category/:name' element={<Category/>}/>
                             <Route path='*' element={<Error />}/>
                         </Route>
                     </Route>

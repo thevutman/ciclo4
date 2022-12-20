@@ -31,5 +31,6 @@ public class Movie implements Serializable {
     private String description;
     private String link;
     private String views;
+    private String category;
 
 }
