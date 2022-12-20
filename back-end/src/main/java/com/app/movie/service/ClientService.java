@@ -41,8 +41,12 @@ public class ClientService {
         return reportClientDto;
     }
 
+
     public ResponseDto create(Client request) {
-        ResponseDto response = new ResponseDto();
+        
+        ResponseDto response = new ResponseDto();  
+        String encodedPassword = this.passwordEncoder.
+        encode(request.getPassword());      
         List<Client> client = repository.findByEmail(request.getEmail());
         if(client.size()>0){
             response.status=false;
@@ -55,6 +59,11 @@ public class ClientService {
         }
         return response;
     }
+
+    public List<Client> getByEmail(String email) {
+        List<Client> response= repository.findByEmail(email);
+        return response;
+     }
 
     public Client update(Client client) {
         Client clientToUpdate = new Client();
