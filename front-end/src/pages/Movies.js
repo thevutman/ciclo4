@@ -3,7 +3,9 @@ import Views from '../components/Views';
 
 const Movies = () => {
   return (
-    <Views />
+    <Views 
+    API="http://localhost:8080/api/movie/"
+    />
   );
 };
 
