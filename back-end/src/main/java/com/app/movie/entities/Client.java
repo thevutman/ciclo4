@@ -6,7 +6,6 @@ package com.app.movie.entities;
 
 
 import java.io.Serializable;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +26,7 @@ public class Client implements Serializable {
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
     private String email;
+    //@JsonIgnore
     private String password;
     private String name;
     private String lastName;
