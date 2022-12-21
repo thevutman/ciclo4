@@ -3,6 +3,20 @@ import {Link } from "react-router-dom";
 import "../styles/Login.scss"
     
     const Login =() => {
+        function Logg() {
+            const jsonData={
+                "user":document.getElementById("Email").value,
+                "password":document.getElementById("Password").value,
+    
+            }
+    
+            let e =fetch("http://localhost:8080/api/user", { 
+                method:"POST",
+                headers:{"Content-Type":"application/json" },
+                body:JSON.stringify(jsonData)
+            } )
+            console.log(e)
+        }
     
     
     return (
@@ -19,7 +33,7 @@ import "../styles/Login.scss"
                     <label for="Password">Password</label>
                     <input type="password" name="Password" placeholder="*******"/>
                 </form>
-                <button>Entrar</button>
+                <button onClick={Logg}>Entrar</button>
                 <p>¿No tienes cuenta? Registrate <Link className="login-container__link" to={"/Register"}>aquí </Link></p>
 
             </div>
