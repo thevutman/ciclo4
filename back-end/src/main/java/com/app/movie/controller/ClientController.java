@@ -5,12 +5,9 @@
 package com.app.movie.controller;
 
 import com.app.movie.dto.ReportClientDto;
-import com.app.movie.dto.ResponseDto;
 import com.app.movie.service.ClientService;
 import com.app.movie.entities.Client;
-
-import java.util.List;
-
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -41,20 +38,19 @@ public class ClientController {
         return service.get();
     }
 
-
     @GetMapping("/report")
     public ReportClientDto getReport() {
         return service.getReport();
     }
 
     @GetMapping("/{email}")
-    public List<Client> getByEmail(@PathVariable("email") String email) {
+    public Optional<Client> getByEmail(@PathVariable("email") String email) {
         return service.getByEmail(email);
     }
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseDto create(@RequestBody Client request) {
+    public Client create(@RequestBody Client request) {
         return service.create(request);
     }
 

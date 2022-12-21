@@ -5,14 +5,11 @@
 package com.app.movie.service;
 
 import com.app.movie.dto.ReportClientDto;
-import com.app.movie.dto.ResponseDto;
 import com.app.movie.entities.Client;
-
 import com.app.movie.repository.ClientRepository;
-
-import java.util.List;
 import java.util.Optional;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,6 +29,18 @@ public class ClientService {
         return response;
     }
 
+    public Optional<Client> getByCredential(String credential) {
+        String pair = new String(Base64.decodeBase64(credential.substring(6)));
+        String email = pair.split(":")[0];
+        String pass = pair.split(":")[1];
+
+        Optional<Client> client = repository.findByEmail(email);
+        if(!matchPass(pass,client.get().getPassword())){
+            return null;
+        }
+        return client;
+    }
+
 
     public ReportClientDto getReport() {
         Optional<Client> client = repository.findById("6380442df71ad74770fc57e1");
@@ -43,25 +52,14 @@ public class ClientService {
     }
 
 
-    public ResponseDto create(Client request) {
-        ResponseDto response = new ResponseDto();
+    public Client create(Client request) {
         String encodedPassword = this.passwordEncoder.encode(request.getPassword());
         request.setPassword(encodedPassword);
-        List<Client> client = repository.findByEmail(request.getEmail());
-        if(client.size()>0){
-            response.status=false;
-            response.message="USUARIO YA SE ENCUENTRA REGISTRADO";
-        }else{
-            repository.save(request);
-            response.status=true;
-            response.message="REGISTRADO EXITOSAMENTE";
-            response.id= request.getId();
-        }
-        return response;
+        return repository.save(request);
     }
 
-    public List<Client> getByEmail(String email) {
-        List<Client> response= repository.findByEmail(email);
+    public Optional<Client> getByEmail(String email) {
+        Optional<Client> response= repository.findByEmail(email);
         return response;
      }
 
@@ -80,5 +78,8 @@ public class ClientService {
         repository.deleteById(id);
         Boolean deleted = true;
         return deleted;
+    }
+    private Boolean matchPass(String pass,String dbPass){
+        return this.passwordEncoder.matches(pass,dbPass);
     }
 }

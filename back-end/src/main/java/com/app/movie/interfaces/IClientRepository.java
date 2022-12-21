@@ -5,8 +5,7 @@
 package com.app.movie.interfaces;
 
 import com.app.movie.entities.Client;
-
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -17,5 +16,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface IClientRepository extends CrudRepository<Client, String> {
     @Query(value = "{email: ?0}")
-    List<Client> findByEmail(String email);
+    Optional<Client> findByEmail(String email);
 }
