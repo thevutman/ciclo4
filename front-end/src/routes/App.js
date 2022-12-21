@@ -10,6 +10,7 @@ import Error from '../pages/Error';
 import Movies from '../pages/Movies';
 import Series from '../pages/Series';
 import Category from '../components/Category';
+import Account from '../pages/Account';
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
                             <Route path='movies/:id' element={<Movies/>}/>
                             <Route path='series/:id' element={<Series/>}/>
                             <Route path='category/:name' element={<Category/>}/>
+                            <Route path='account' element={<Account/>}/>
                             <Route path='*' element={<Error />}/>
                         </Route>
                     </Route>
