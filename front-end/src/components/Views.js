@@ -12,7 +12,21 @@ const Views = (API) => {
             response = await response.json()
             setContents(response)
         }
+        async function fetchCheck() {
+            let x = await fetch("http://localhost:8080/api/score/check/"+params.id, { 
+                // Enter your IP address here 
+                method: 'GET', 
+                headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
+                // body data type must match "Content-Type" header 
+            }) 
+            x = await x.json()
+            console.log(x)
+            if(x){
+                document.getElementById('heart').classList.add('active')
+            }
+        }
         fetchData()
+        console.log(fetchCheck())
        }, [])
 
        function like(){
@@ -30,7 +44,7 @@ const Views = (API) => {
             let x = await fetch("http://localhost:8080/api/score", { 
                 // Enter your IP address here 
                 method: 'POST', 
-                headers: { 'Content-Type': 'application/json',authorization:"Basic bWFyY2VAZ21haWwuY29tOk1hcmNlMTIzNDU2" },
+                headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
                 body: JSON.stringify(jsonData) 
                 // body data type must match "Content-Type" header 
             }) 
