@@ -1,22 +1,11 @@
 import React,{useEffect }  from "react";
-import {Link} from "react-router-dom";
-import "../styles/Register.scss"
-
-// { }  <>
-// let k =fetch("http://localhost:8080/api/client/"+document.getElementById("Email").value)
-//k=k.JSON()
-//console.log(k.email) 
-    
+import {Link, useNavigate} from "react-router-dom";
+import "../styles/Register.scss"    
 
 const Register =() => { 
-    // useEffect(() => { 
-        // async function emailData(){ 
-        //     let k =await fetch("http://localhost:8080/api/client/amaury3@malmail.com")
-        //     k=await k.json()
-        //     console.log(k[0].email)
-        // }
-    //     emailData()
-    // })
+
+    let navigate = useNavigate()
+
     function registrar() {
         const jsonData={
             "name":document.getElementById("Name").value,
@@ -28,7 +17,7 @@ const Register =() => {
 
         }
 
-        let e =fetch("http://localhost:8080/api/client", { 
+        fetch("http://localhost:8080/api/client", { 
             method:"POST",
             headers:{"Content-Type":"application/json" },
             body:JSON.stringify(jsonData)
@@ -37,7 +26,7 @@ const Register =() => {
     }
     async function comprobar() {
         var i=0
-        let p=0
+        var p=0
         const email = document.getElementById('Email')
         const password = document.getElementById('Password')
         const repeatpassword = document.getElementById('RepeatPassword')
@@ -47,9 +36,10 @@ const Register =() => {
             k=await k.json()
             return k
         }
+
         let checkEmail = await emailData();
-        if (checkEmail.length > 0) {
-            checkEmail = checkEmail[0].email
+        if (checkEmail != null) {
+            checkEmail = checkEmail.email
         }
         else (
             checkEmail = ""
@@ -86,6 +76,7 @@ const Register =() => {
                             break
                         }
                         registrar()
+                        navigate("/")
                         return true
                     }
                 }
@@ -105,9 +96,6 @@ const Register =() => {
                 break
             }
         }
-    }
-    async function handleClickRegister(){
-        console.log(await comprobar())
     }
     return (
         <div className="register">
@@ -130,7 +118,7 @@ const Register =() => {
                     <label for="RepeatPassword">Repeat Password</label>
                     <input className="input" id="RepeatPassword" type="password" name="RepeatPassword" placeholder="*******" required/>
                 </form>
-                <button type="submit" onClick={handleClickRegister}>Start</button>
+                <button type="submit" onClick={comprobar}>Start</button>
                 <p>¿Ya tienes cuenta? Ingresa aquí <Link className="register-container__link" to={"/"}>aquí </Link></p>
 
             </div>
