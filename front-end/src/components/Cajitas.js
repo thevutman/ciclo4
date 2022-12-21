@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/cajitas.scss";
 import img from "../assets/pelicula.jpg";
 // import requestApi from '../hooks/requestApi';
@@ -7,27 +7,36 @@ import img from "../assets/pelicula.jpg";
 const Cajitas = (API) => {
   // const contents = requestApi(API.API)
   const [contents, setContents] = useState([]);
+  fetchData()
+  // if(params.)
 
   useEffect(() => {
-    async function fetchData() {
-      let array = [];
-      let response = await fetch(API.API);
-      response = await response.json();
-      if (API.category != "") {
-        let i = 0;
-        let c = 0;
-        for (i = 0; i < response.length; i++) {
-            if(response[i].category==API.category){
-                array.push(response[i])
-            }
-        }
-        response=array
-      }
-      
-      setContents(response);
-    }
     fetchData();
   }, []);
+  // console.log(count)
+  // if(count!=0){
+  //   console.log(1)
+  //   fetchData()
+  // }
+
+
+  async function fetchData() {
+    let array = [];
+    let response = await fetch(API.API);
+    response = await response.json();
+    if (API.category != "") {
+      // navigate(0)
+      let i = 0;
+      for (i = 0; i < response.length; i++) {
+          if(response[i].category==API.category){
+              array.push(response[i])
+          }
+      }
+      response=array
+    }
+    
+    setContents(response);
+  }
 
   return (
     <div className="cajitas">

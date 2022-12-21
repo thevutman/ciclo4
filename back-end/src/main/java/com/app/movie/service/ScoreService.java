@@ -55,21 +55,39 @@ public class ScoreService {
 
     }
 
-    public Boolean check(String movieId,String authorization) {
-        Boolean auth = true;
+    // public Boolean check(String movieId,String authorization) {
+    //     Boolean auth = true;
+    //     Optional<Movie> movie = movieRepository.findById(movieId);
+    //     Optional<Client> client = clientService.getByCredential(authorization);
+    //     if(movie.isPresent() && client.isPresent()){
+    //         List<Score> scores = repository.findByMovieAndClient(movie.get().getId(),client.get().getId());
+    //         System.out.print(1);
+    //         System.out.print(scores.isEmpty());
+    //         if(scores.isEmpty()){
+    //             // score = scores.get(scores.size()-1);
+    //             auth = false;
+    //         }
+    //     }
+ 
+    //     return auth;
+    // }
+
+    public Score check(String movieId,String authorization) {
+        Score score = new Score();
+        // Boolean auth = true;
         Optional<Movie> movie = movieRepository.findById(movieId);
         Optional<Client> client = clientService.getByCredential(authorization);
         if(movie.isPresent() && client.isPresent()){
             List<Score> scores = repository.findByMovieAndClient(movie.get().getId(),client.get().getId());
             System.out.print(1);
             System.out.print(scores.isEmpty());
-            if(scores.isEmpty()){
-                // score = scores.get(scores.size()-1);
-                auth = false;
+            if(scores.size()>0){
+                score = scores.get(scores.size()-1);
+                // auth = false;
             }
         }
  
-        return auth;
+        return score;
     }
 
     public Score update(Score score) {

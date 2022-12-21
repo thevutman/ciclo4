@@ -12,47 +12,54 @@ const Views = (API) => {
             response = await response.json()
             setContents(response)
         }
-        async function fetchCheck() {
-            let x = await fetch("http://localhost:8080/api/score/check/"+params.id, { 
-                // Enter your IP address here 
-                method: 'GET', 
-                headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
-                // body data type must match "Content-Type" header 
-            }) 
-            x = await x.json()
-            console.log(x)
-            if(x){
-                document.getElementById('heart').classList.add('active')
-            }
-        }
         fetchData()
-        console.log(fetchCheck())
-       }, [])
+        fetchCheck()
+    }, [])
 
-       function like(){
-          console.log(4)
-          handleClick()
-          document.getElementById("heart").style.color="red"
-       }
-
-       var jsonData = {
-        "state": true,
-        "movieId":params.id,
-        } 
-        async function handleClick() { 
-            // Send data to the backend via POST 
-            let x = await fetch("http://localhost:8080/api/score", { 
-                // Enter your IP address here 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
-                body: JSON.stringify(jsonData) 
-                // body data type must match "Content-Type" header 
-            }) 
-            console.log(x)
-            x= await x.json()
-            console.log(x)
-
+    async function fetchCheck(y) {
+        let x = await fetch("http://localhost:8080/api/score/check/"+params.id, { 
+            // Enter your IP address here 
+            method: 'GET', 
+            headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
+            // body data type must match "Content-Type" header 
+        }) 
+        x = await x.json()
+        if(x.state){
+            document.getElementById('heart').classList.add('active')
         }
+        return(x)
+    }
+
+    async function like(){
+    let check = await fetchCheck()
+        if(check.state){
+            document.getElementById('heart').classList.remove('active')
+            fetch("http://localhost:8080/api/score/"+check.id, {
+            method: 'DELETE', 
+            headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
+            })
+        } 
+        else{
+            document.getElementById('heart').classList.add('active')
+            handleClick()
+            fetchCheck()
+        }
+    }
+
+    var jsonData = {
+    "state": true,
+    "movieId":params.id,
+    } 
+    async function handleClick() { 
+        // Send data to the backend via POST 
+        let x = await fetch("http://localhost:8080/api/score", { 
+            // Enter your IP address here 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
+            body: JSON.stringify(jsonData) 
+            // body data type must match "Content-Type" header 
+        }) 
+    }
 
     return (
         <div>  
