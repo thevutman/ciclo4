@@ -27,11 +27,12 @@ public class Series implements Serializable {
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private String id;
     private String name;
-    //private List<Category> series_genre;
+    private String category;
     private String classification;
     private String season;
     private String description;
-
+    private String views;
+    private String link;
 
 
 
