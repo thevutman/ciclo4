@@ -5,6 +5,7 @@
 package com.app.movie.service;
 
 import com.app.movie.dto.ResponseDto;
+import com.app.movie.dto.ScoreDto;
 import com.app.movie.entities.Client;
 import com.app.movie.entities.Movie;
 import com.app.movie.entities.Score;
@@ -27,23 +28,28 @@ public class ScoreService {
     ClientRepository clientRepository;
     @Autowired
     MovieRepository movieRepository;
+    @Autowired
+    ClientService clientService;
 
     public Iterable<Score> get() {
         Iterable<Score> response = repository.getAll();
         return response;
     }
 
-    public ResponseDto create(Score request) {
+    public ResponseDto create(ScoreDto request, String authorization) {
         ResponseDto response = new ResponseDto();
-        if(request.getState()){
+        Score score = new Score();
+        System.out.println(request.state);
+        Optional<Movie>movie = movieRepository.findById(request.movieId);
+        System.out.println(33);
+        Optional<Client>client = clientService.getByCredential(authorization);
+        System.out.println(22);
+        if (movie.isPresent()&& client.isPresent()){
+            score.setState(true);
+            score.setClient(client.get());
+            score.setMovie(movie.get());
+            repository.save(score);
             response.status=true;
-            response.message="Calificación guardada correctamente";
-            response.id= request.getId();
-            repository.save(request);
-        }
-        else {
-            response.status=false;
-            response.message="La calificación enviada no está dentro de los valores esperados";
         }
         return response;
 
