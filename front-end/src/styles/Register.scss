@@ -94,6 +94,24 @@
 
 }
 #mensajeError{
-    font-size:1.8rem; 
-    color: red;
- }
+    font-size: 0.1;
+    width: 30%;
+    background-color: red;
+    color: white;
+    border-radius: 6px;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px 20px;
+    transition: .8s ease all;
+    text-transform: uppercase;
+
+    transform: translateY(-10px);
+    opacity: 0;
+
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+        font-size: 1.4rem;
+        // animation: downer 3s ease 0 forwards;
+    }
+}

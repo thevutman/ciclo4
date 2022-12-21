@@ -46,6 +46,7 @@ const Register =() => {
         )
 
         const mensajeError=document.getElementById("mensajeError")
+        mensajeError.classList.remove('active')
         mensajeError.innerHTML=""
         const input = document.querySelectorAll(".input")
         
@@ -53,11 +54,13 @@ const Register =() => {
             if (input[i].value != "") {
                 if (input[i].reportValidity()) {
                     input[i].style.border='2px solid green'
+                    mensajeError.classList.remove('active')
                     mensajeError.innerHTML=""
 
                     if (i==4) {
                         if (checkEmail==email.value) {
                             email.style.border="2px solid red"
+                            mensajeError.classList.add('active')
                             mensajeError.innerHTML +="El correo ya se encuentra registrado"
                             break
                         }
@@ -72,6 +75,7 @@ const Register =() => {
                             }
                             else{
                             repeatpassword.style.border="2px solid red" 
+                            mensajeError.classList.add('active')
                             mensajeError.innerHTML +="La contraseña no coincide"
                             break
                         }
@@ -87,6 +91,7 @@ const Register =() => {
                 i++
             }
             else {
+                mensajeError.classList.add('active')
                 mensajeError.innerHTML+="<br/>todos los campos son necesarios"
                 for (let j = 0; j < input.length; j++) {
                     if(input[j].value == ''){
