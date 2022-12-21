@@ -33,6 +33,7 @@
         align-items: center;
         color: white;
         gap: 16px;
+        transition: .3s ease all;
         &__form {
             display: flex;
             flex-direction: column;
@@ -46,8 +47,8 @@
                 width: 90%;
                 height: 33px;
                 background: #232323;
+                border: 2px solid #232323;
                 border-radius: 38px;
-                border-style: none;
                 padding: 0 15px;
                 color: white;
                 font-family: 'Inter', sans-serif;
@@ -93,4 +94,26 @@
         }
     }
 
+}
+
+#errorMessageLogin {
+    font-size: 0.1;
+    width: 30%;
+    background-color: red;
+    color: white;
+    border-radius: 6px;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px 20px;
+    transition: .8s ease all;
+
+    transform: translateY(-10px);
+    opacity: 0;
+
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+        font-size: 1.4rem;
+        // animation: downer 3s ease 0 forwards;
+    }
 }

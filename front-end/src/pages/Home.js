@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {Link, useNavigate } from "react-router-dom";
 import '../styles/Home.scss';
 import Cajitas from '../components/Cajitas';
-import { useEffect } from 'react';
 
 const Home = () => {
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        if(!localStorage.getItem('dataUser')){
+            navigate('/')
+        }
+    },[])
+
     function next (x){
         const activities = document.querySelectorAll(".cajitas");
         activities[x].scrollLeft = activities[x].scrollLeft+400

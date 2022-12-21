@@ -1,14 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link, useNavigate } from "react-router-dom";
 import "../styles/Login.scss"
     
 const Login =() => {
     let navigate = useNavigate()
+
+    useEffect(() => {
+        if(localStorage.getItem('dataUser')){
+            navigate('/home')
+        }
+    },[])
+
     function Logg() {
+        document.getElementById("errorMessageLogin").classList.remove('active')
+
         const jsonData={
             "user":document.getElementById("Email").value,
             "password":document.getElementById("Password").value,
-
         }
 
         async function fetchData(){
@@ -19,11 +27,13 @@ const Login =() => {
             })
             response = await response.json()
             if(response.token != null){
+                localStorage.setItem("dataUser", JSON.stringify(response))
                 navigate("/home")
             }
             else{
                 document.getElementById("Email").style.border="2px solid red"
                 document.getElementById("Password").style.border="2px solid red"
+                document.getElementById("errorMessageLogin").classList.add('active')
             }
         }
         fetchData()
@@ -37,6 +47,7 @@ const Login =() => {
             </div>
             <div className="login-container">
                 <h2>Iniciar sesión </h2>
+                <p id="errorMessageLogin">Email o contrasena incorrectos</p>
                 <form className="login-container__form"> 
                     <label for="Email">Email</label>
                     <input id="Email" type="email" name="Email" placeholder="user@example.com"/>
