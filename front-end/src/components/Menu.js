@@ -72,7 +72,7 @@ const Menu = () => {
           </p>
           <div className="menu-cuenta__items">
             <p className="menu__title" to={""}>
-              Hola Sebastian
+              Hola
             </p>
             <Link className="menu__link" to={"/account"} onClick={()=> openMenuCuenta(0)}>
               Mis datos personales
