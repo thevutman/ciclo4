@@ -54,14 +54,13 @@ const Menu = () => {
           </p>
           <div className="menu-category__items">
             {optiones.map((option) => (
-              <Link
+              <p
                 className="menu__link"
-                to={"/category/" + option.name}
-                onClick={()=> openMenuCategory(0)}
+                onClick={()=> {openMenuCategory(0); navigate("/category/" + option.name)}}
                 key={option.id}
               >
                 {option.name}
-              </Link>
+              </p>
             ))}
           </div>
         </div>

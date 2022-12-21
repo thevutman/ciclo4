@@ -26,8 +26,13 @@ public class ScoreController {
         return service.get();
     }
 
+    // @GetMapping("/check/{movieId}")
+    // public Boolean check(@PathVariable("movieId") String movieId,@RequestHeader(value="authorization") String authorization) {
+    //     return service.check(movieId,authorization);
+    // }
+
     @GetMapping("/check/{movieId}")
-    public Boolean check(@PathVariable("movieId") String movieId,@RequestHeader(value="authorization") String authorization) {
+    public Score check(@PathVariable("movieId") String movieId,@RequestHeader(value="authorization") String authorization) {
         return service.check(movieId,authorization);
     }
 

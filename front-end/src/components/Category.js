@@ -1,11 +1,16 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, {useEffect} from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import '../styles/Home.scss';
 import Cajitas from '../components/Cajitas';
 
 
 const Category = () => {
-    const params = useParams()
+  const params = useParams()
+  // let navigate = useNavigate()
+
+  // useEffect(() => {
+  // },[])
+
     let values = params.name
     values=values.toLowerCase()
     function next (x){
@@ -18,7 +23,7 @@ const Category = () => {
     }
   return (
     <div className="home container">
-      <h2>INICIO</h2>
+      <h2>{params.name}</h2>
       <div className="home__items">
         <h3>Peliculas</h3>
         <Cajitas API="http://localhost:8080/api/movie" type="movies" category={values}/>
