@@ -10,9 +10,6 @@ const Views = (API) => {
         async function fetchData() {
             let response = await fetch(API.API+params.id)
             response = await response.json()
-            console.log(params.id)
-            console.log(response)
-            console.log(API.API)
             setContents(response)
         }
         fetchData()
@@ -25,17 +22,22 @@ const Views = (API) => {
        }
 
        var jsonData = {
-        "state": true
+        "state": true,
+        "movieId":params.id,
         } 
-        function handleClick() { 
+        async function handleClick() { 
             // Send data to the backend via POST 
-            fetch("http://localhost:8080/api/score", { 
+            let x = await fetch("http://localhost:8080/api/score", { 
                 // Enter your IP address here 
                 method: 'POST', 
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json',authorization:"Basic bWFyY2VAZ21haWwuY29tOk1hcmNlMTIzNDU2" },
                 body: JSON.stringify(jsonData) 
                 // body data type must match "Content-Type" header 
             }) 
+            console.log(x)
+            x= await x.json()
+            console.log(x)
+
         }
 
     return (
