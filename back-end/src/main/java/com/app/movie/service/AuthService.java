@@ -28,16 +28,14 @@ public class AuthService {
     public AuthResponseDto check(AuthDto request) {
         AuthResponseDto response =new AuthResponseDto();
         if (request.user != null && !request.user.equals("") && request.password != null && !request.password.equals("")) {
-        Optional<Client> client = checkCredential(request.user, request.password);
-        
-
-        if (client != null && client.isPresent()) {
-            response.id = client.get().getId();
-            response.name = client.get().getName() + " " + client.get().getLastName();
-            response.email = client.get().getEmail();
-            response.token = getToken(request.user, request.password);
+            Optional<Client> client = checkCredential(request.user, request.password);
+            if (client != null && client.isPresent()) {
+                response.id = client.get().getId();
+                response.name = client.get().getName() + " " + client.get().getLastName();
+                response.email = client.get().getEmail();
+                response.token = getToken(request.user, request.password);
+            }
         }
-    }
         return response;
     }
 
@@ -48,14 +46,15 @@ public class AuthService {
 
     } 
     public Optional<Client> checkCredential(String user, String password) {
-
         Optional<Client> client = repository.findByEmail(user);
-        System.out.println(client.get().getEmail());
-        if (!matchPass(password, client.get().getPassword())) {
-            System.out.println(6);
-            return null;
+
+        if(client.isPresent()){
+            if (!matchPass(password, client.get().getPassword())) {
+                return null;
+            }
+            return client;
         }
-        return client;
+        return null;
     } 
 
 

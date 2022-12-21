@@ -1,24 +1,34 @@
 import React from "react";
-import {Link } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import "../styles/Login.scss"
     
-    const Login =() => {
-        function Logg() {
-            const jsonData={
-                "user":document.getElementById("Email").value,
-                "password":document.getElementById("Password").value,
-    
-            }
-    
-            let e =fetch("http://localhost:8080/api/user", { 
+const Login =() => {
+    let navigate = useNavigate()
+    function Logg() {
+        const jsonData={
+            "user":document.getElementById("Email").value,
+            "password":document.getElementById("Password").value,
+
+        }
+
+        async function fetchData(){
+            let response = await fetch("http://localhost:8080/api/auth", { 
                 method:"POST",
                 headers:{"Content-Type":"application/json" },
                 body:JSON.stringify(jsonData)
-            } )
-            console.log(e)
+            })
+            response = await response.json()
+            if(response.token != null){
+                navigate("/home")
+            }
+            else{
+                document.getElementById("Email").style.border="2px solid red"
+                document.getElementById("Password").style.border="2px solid red"
+            }
         }
-    
-    
+        fetchData()
+    }
+
     return (
         <div className="login">
             <div className="login-information">
@@ -29,9 +39,9 @@ import "../styles/Login.scss"
                 <h2>Iniciar sesión </h2>
                 <form className="login-container__form"> 
                     <label for="Email">Email</label>
-                    <input type="email" name="Email" placeholder="user@example.com"/>
+                    <input id="Email" type="email" name="Email" placeholder="user@example.com"/>
                     <label for="Password">Password</label>
-                    <input type="password" name="Password" placeholder="*******"/>
+                    <input id="Password" type="password" name="Password" placeholder="*******"/>
                 </form>
                 <button onClick={Logg}>Entrar</button>
                 <p>¿No tienes cuenta? Registrate <Link className="login-container__link" to={"/Register"}>aquí </Link></p>
