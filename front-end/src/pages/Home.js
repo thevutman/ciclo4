@@ -20,6 +20,7 @@ const Home = () => {
                 <Cajitas
                     API="http://localhost:8080/api/movie"
                     type="movies"
+                    category=""
                 />
                 <div className='home__left' onClick={() => back(0)}></div>
                 <div className='home__right' onClick={() => next(0)}></div>
@@ -29,6 +30,7 @@ const Home = () => {
                 <Cajitas
                     API="http://localhost:8080/api/series"
                     type='series'
+                    category=""
                 />
                 <div className='home__left' onClick={() => back(1)}></div>
                 <div className='home__right' onClick={() => next(1)}></div>
