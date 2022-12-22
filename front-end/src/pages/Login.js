@@ -1,13 +1,14 @@
 import React, {useEffect} from "react";
 import {Link, useNavigate } from "react-router-dom";
 import "../styles/Login.scss"
+import { API_URL } from "../util/Util";
     
 const Login =() => {
     let navigate = useNavigate()
 
     useEffect(() => {
         if(localStorage.getItem('dataUser')){
-            navigate('/home')
+            navigate('/home/all')
         }
     },[])
 
@@ -20,7 +21,7 @@ const Login =() => {
         }
 
         async function fetchData(){
-            let response = await fetch("http://localhost:8080/api/auth", { 
+            let response = await fetch(API_URL+"auth", { 
                 method:"POST",
                 headers:{"Content-Type":"application/json" },
                 body:JSON.stringify(jsonData)

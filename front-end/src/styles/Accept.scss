@@ -1,0 +1,42 @@
+@import './vars.scss';
+
+.accept {
+    background: green;
+    padding: 16px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 3s ease all;
+    position: absolute;
+    width: 30%;
+    top: 70px;
+    left: 100%;
+    opacity: 0;
+    transform: scale(0.6);
+
+    animation: leftt 3s ease ;
+}
+
+@keyframes leftt {
+    from{
+        left: 100%;
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    30%{
+        transform: scale(1);
+        opacity: 1;
+        left: 35%;
+    }
+    60%{
+        transform: scale(1);
+        opacity: 1;
+        left: 35%;
+    }
+    to{
+        left: 0;
+    }
+    
+}

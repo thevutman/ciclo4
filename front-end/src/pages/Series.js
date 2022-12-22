@@ -1,10 +1,11 @@
 import React from 'react';
 import Views from '../components/Views';
+import { API_URL } from '../util/Util';
 
 const Series = () => {
     return (
         <Views 
-        API="http://localhost:8080/api/series/"
+        API={API_URL + "series/"}
         />
       );
 };

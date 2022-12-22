@@ -3,28 +3,31 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/cajitas.scss";
 import img from "../assets/pelicula.jpg";
 // import requestApi from '../hooks/requestApi';
-
+let x = 2;
+let y = 0
+console.log(x)
 const Cajitas = (API) => {
   // const contents = requestApi(API.API)
   const [contents, setContents] = useState([]);
-  fetchData()
-  // if(params.)
+  
+  if(x!=y){
+    fetchData()
+    y=y+1
+  }
+  else{
+    x=x+2
+  }
 
   useEffect(() => {
     fetchData();
   }, []);
-  // console.log(count)
-  // if(count!=0){
-  //   console.log(1)
-  //   fetchData()
-  // }
 
 
   async function fetchData() {
     let array = [];
     let response = await fetch(API.API);
     response = await response.json();
-    if (API.category != "") {
+    if (API.category != "all") {
       // navigate(0)
       let i = 0;
       for (i = 0; i < response.length; i++) {

@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import "../styles/Account.scss";
+import { API_URL } from '../util/Util';
 
 const Account = () => {
     const [info, setInfo]= useState([])
     useEffect(() =>{
         async function fetchData(){
-            let response = await fetch("http://localhost:8080/api/client/"+JSON.parse(localStorage.getItem("dataUser")).email)
+            let response = await fetch(API_URL+"client/"+JSON.parse(localStorage.getItem("dataUser")).email)
             response=await response.json()
             setInfo(response)
         }

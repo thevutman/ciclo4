@@ -69,6 +69,7 @@
             cursor: pointer;
             border-style: none;
             max-width: 150px;
+            transition: .3s ease all;
             &:hover { 
                 background: #6e0b10; 
             }
