@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/cajitas.scss";
 import img from "../assets/pelicula.jpg";
 // import requestApi from '../hooks/requestApi';

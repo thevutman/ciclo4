@@ -9,9 +9,9 @@ const Menus = (i) => {
     const [optiones, setOptiones] = useState([]);
     let navigate = useNavigate();
     useEffect(() => {
-      if(!localStorage.getItem("dataUser")){
-        navigate("/")
-      }
+      // if(!localStorage.getItem("dataUser")){
+      //   navigate("/")
+      // }
       async function fetchData() {
         let response = await fetch(api);
         response = await response.json();

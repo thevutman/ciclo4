@@ -7,37 +7,38 @@ const Login =() => {
     let navigate = useNavigate()
 
     useEffect(() => {
-        if(localStorage.getItem('dataUser')){
-            navigate('/home/all')
-        }
+        // if(localStorage.getItem('dataUser')){
+        //     navigate('/home/all')
+        // }
     },[])
 
     function Logg() {
-        document.getElementById("errorMessageLogin").classList.remove('active')
+        navigate("/home/inicio")
+        // document.getElementById("errorMessageLogin").classList.remove('active')
 
-        const jsonData={
-            "user":document.getElementById("Email").value,
-            "password":document.getElementById("Password").value,
-        }
+        // const jsonData={
+        //     "user":document.getElementById("Email").value,
+        //     "password":document.getElementById("Password").value,
+        // }
 
-        async function fetchData(){
-            let response = await fetch(API_URL+"auth", { 
-                method:"POST",
-                headers:{"Content-Type":"application/json" },
-                body:JSON.stringify(jsonData)
-            })
-            response = await response.json()
-            if(response.token != null){
-                localStorage.setItem("dataUser", JSON.stringify(response))
-                navigate("/home")
-            }
-            else{
-                document.getElementById("Email").style.border="2px solid red"
-                document.getElementById("Password").style.border="2px solid red"
-                document.getElementById("errorMessageLogin").classList.add('active')
-            }
-        }
-        fetchData()
+        // async function fetchData(){
+        //     let response = await fetch(API_URL+"auth", { 
+        //         method:"POST",
+        //         headers:{"Content-Type":"application/json" },
+        //         body:JSON.stringify(jsonData)
+        //     })
+        //     response = await response.json()
+        //     if(response.token != null){
+        //         localStorage.setItem("dataUser", JSON.stringify(response))
+        //         navigate("/home")
+        //     }
+        //     else{
+        //         document.getElementById("Email").style.border="2px solid red"
+        //         document.getElementById("Password").style.border="2px solid red"
+        //         document.getElementById("errorMessageLogin").classList.add('active')
+        //     }
+        // }
+        // fetchData()
     }
 
     return (
