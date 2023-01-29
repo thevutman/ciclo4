@@ -2,10 +2,11 @@ import React, {useEffect} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import '../styles/Home.scss';
 import Cajitas from '../components/Cajitas';
+import { API_URL } from "../util/Util";
 
 
 const Category = () => {
-  const params = useParams()
+  const params = useParams() 
   // let navigate = useNavigate()
 
   // useEffect(() => {
@@ -26,13 +27,13 @@ const Category = () => {
       <h2>{params.name}</h2>
       <div className="home__items">
         <h3>Peliculas</h3>
-        <Cajitas API="http://localhost:8080/api/movie" type="movies" category={values}/>
+        <Cajitas API={API_URL+"movie"} type="movies" category={values}/>
         <div className="home__left" onClick={() => back(0)}></div>
         <div className="home__right" onClick={() => next(0)}></div>
       </div>
       <div className="home__items">
         <h3>Series</h3>
-        <Cajitas API="http://localhost:8080/api/series" type="series" category={values} />
+        <Cajitas API={API_URL+"series"} type="series" category={values} />
         <div className="home__left" onClick={() => back(1)}></div>
         <div className="home__right" onClick={() => next(1)}></div>
       </div>

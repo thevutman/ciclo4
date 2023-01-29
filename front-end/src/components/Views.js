@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import "../styles/Views.scss";
+import { API_URL } from '../util/Util';
 
 const Views = (API) => {
     const [contents, setContents] = useState([])
@@ -17,7 +18,7 @@ const Views = (API) => {
     }, [])
 
     async function fetchCheck(y) {
-        let x = await fetch("http://localhost:8080/api/score/check/"+params.id, { 
+        let x = await fetch(API_URL+"score/check/"+params.id, { 
             // Enter your IP address here 
             method: 'GET', 
             headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
@@ -34,7 +35,7 @@ const Views = (API) => {
     let check = await fetchCheck()
         if(check.state){
             document.getElementById('heart').classList.remove('active')
-            fetch("http://localhost:8080/api/score/"+check.id, {
+            fetch(API_URL+"score/"+check.id, {
             method: 'DELETE', 
             headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
             })
@@ -52,7 +53,7 @@ const Views = (API) => {
     } 
     async function handleClick() { 
         // Send data to the backend via POST 
-        let x = await fetch("http://localhost:8080/api/score", { 
+        let x = await fetch(API_URL+"score", { 
             // Enter your IP address here 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json',authorization:"Basic "+JSON.parse(localStorage.getItem("dataUser")).token},
@@ -62,7 +63,7 @@ const Views = (API) => {
     }
 
     return (
-        <div>  
+        <div className='vista--container'>  
             <div className='vista'>     
                 <iframe width="100%" height="100%" src={!contents.views?" ":contents.views} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 <div className='vista-container'>

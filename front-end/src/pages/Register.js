@@ -1,10 +1,14 @@
-import React,{useEffect }  from "react";
+import React,{useEffect, useState }  from "react";
 import {Link, useNavigate} from "react-router-dom";
+import { API_URL } from "../util/Util";
+import Error from "./Error"
 import "../styles/Register.scss"    
+import Accept from "../components/Accept";
 
 const Register =() => { 
 
     let navigate = useNavigate()
+    const [lol, setLol] = useState()
 
     function registrar() {
         const jsonData={
@@ -17,13 +21,14 @@ const Register =() => {
 
         }
 
-        fetch("http://localhost:8080/api/client", { 
+        fetch(API_URL+"client", { 
             method:"POST",
             headers:{"Content-Type":"application/json" },
             body:JSON.stringify(jsonData)
         } )
     
     }
+
     async function comprobar() {
         var i=0
         var p=0
@@ -32,7 +37,7 @@ const Register =() => {
         const repeatpassword = document.getElementById('RepeatPassword')
 
         async function emailData(){ 
-            let k =await fetch("http://localhost:8080/api/client/"+document.getElementById("Email").value)
+            let k =await fetch(API_URL+"client/"+document.getElementById("Email").value)
             k=await k.json()
             return k
         }
@@ -79,8 +84,8 @@ const Register =() => {
                             mensajeError.innerHTML +="La contraseña no coincide"
                             break
                         }
-                        registrar()
-                        navigate("/")
+                        setLol(<Accept/>)
+                        setTimeout(checkAccept,3000)
                         return true
                     }
                 }
@@ -102,6 +107,12 @@ const Register =() => {
             }
         }
     }
+
+    function checkAccept() {
+        registrar()
+        navigate("/")
+    }
+
     return (
         <div className="register">
             <div className="register-container">
@@ -109,9 +120,9 @@ const Register =() => {
                 <p id="mensajeError"> </p>
                 <form className="register-container__form"> 
                     <label for="Name">Name</label>
-                    <input className="input" id="Name" type="text" name="Name" placeholder="" pattern="[A-Za-z]{1,20}" required/>
+                    <input className="input" id="Name" type="text" name="Name" placeholder="" pattern="[A-Za-z]{1,20}" title="No puede contener numeros, max 30" required/>
                     <label for="LastName">LastName</label>
-                    <input className="input" id="LastName" type="text" name="LastName" placeholder="" pattern="[A-Za-z]{1,30}" required/>
+                    <input className="input" id="LastName" type="text" name="LastName" placeholder="" pattern="[A-Za-z]{1,30}" title="No puede contener numeros, max 30" required/>
                     <label for="birthDate">birthDate</label>
                     <input className="input" id="birthDate" type="date" name="birthDate" placeholder="" required/>
                     <label for="phone">phone</label>
@@ -125,7 +136,7 @@ const Register =() => {
                 </form>
                 <button type="submit" onClick={comprobar}>Start</button>
                 <p>¿Ya tienes cuenta? Ingresa aquí <Link className="register-container__link" to={"/"}>aquí </Link></p>
-
+                <div id="accept">{lol}</div>
             </div>
         </div>
     );

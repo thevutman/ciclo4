@@ -19,9 +19,17 @@ html {
     color: $color3;
     border-radius: 50px 50px 0 0;
     padding: 26px;
+    height: 75vh;
 
     @include media(desktop-s){
         padding: 38px 5%;
     }
+}
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 

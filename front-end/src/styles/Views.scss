@@ -1,11 +1,12 @@
 @import "./vars.scss";
 @import "./global.scss";
 
-
+.vista--container {
+    height: 83%;
+}
 .vista {
     position: relative;
     width: 100%;
-    height: 90vh;
     
     iframe{
         border-radius: 50px 50px 0 0; 

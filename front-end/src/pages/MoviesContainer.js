@@ -1,18 +1,14 @@
-import React, {useEffect} from 'react';
-import {Link, useNavigate } from "react-router-dom";
+import React, {useEffect} from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import '../styles/Home.scss';
 import Cajitas from '../components/Cajitas';
+import { API_URL } from "../util/Util";
 
-const Home = () => {
+const MoviesContainer = () => {
+    const params = useParams()
 
-    let navigate = useNavigate();
-
-    useEffect(() => {
-        if(!localStorage.getItem('dataUser')){
-            navigate('/')
-        }
-    },[])
-
+    let values = params.name
+    values=values.toLowerCase()
     function next (x){
         const activities = document.querySelectorAll(".cajitas");
         activities[x].scrollLeft = activities[x].scrollLeft+400
@@ -21,15 +17,17 @@ const Home = () => {
         const activities = document.querySelectorAll(".cajitas");
         activities[x].scrollLeft = activities[x].scrollLeft-400
     }
+
+    
     return (
         <div className='home container'>
-            <h2>INICIO</h2>
+            <h2>{params.name=='all'?'inicio':params.name}</h2>
             <div className='home__items'>
                 <h3>Peliculas</h3>
                 <Cajitas
-                    API="http://localhost:8080/api/movie"
+                    API={API_URL+"movie"}
                     type="movies"
-                    category=""
+                    category={values}
                 />
                 <div className='home__left' onClick={() => back(0)}></div>
                 <div className='home__right' onClick={() => next(0)}></div>
@@ -37,21 +35,15 @@ const Home = () => {
             <div className='home__items'> 
                 <h3>Series</h3>
                 <Cajitas
-                    API="http://localhost:8080/api/series"
+                    API= {API_URL+"series"}
                     type='series'
-                    category=""
+                    category={values}
                 />
                 <div className='home__left' onClick={() => back(1)}></div>
                 <div className='home__right' onClick={() => next(1)}></div>
             </div>
-            {/*<div className='home__items'>
-                <h3>Favoritos</h3> */}
-                {/* <Cajitas
-                    API="http://localhost:8080/api/movie"
-                /> */}
-            {/* </div> */}
         </div>
     );
 };
 
-export default Home;
+export default MoviesContainer;
